@@ -1,0 +1,30 @@
+﻿    @model IEnumerable<ToDoMVC.Model.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Categories</h1>
+<p> @Html.ActionLink("Create New Category", "Create")</p>
+
+
+<table class="table">
+
+    <thead>
+        @Html.DisplayNameFor(model => model.Name)
+    </thead>
+
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("Works", "Index", "Works", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
